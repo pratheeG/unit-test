@@ -3,7 +3,7 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  cypress: cypress-io/cypress@2
+  cypress-io: cypress-io/cypress@2
 
 executors:
   with-chrome:
@@ -62,12 +62,12 @@ workflows:
           requires:
             - build-and-test
       
-      - cypress/install:
+      - cypress-io/install:
           name: 'Cyp Install'
           requires:
             - build-and-test
 
-      - cypress/run:
+      - cypress-io/run:
           name: E2E test
           requires:
             - build-and-test
