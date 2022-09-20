@@ -67,7 +67,6 @@ workflows:
           yarn: true
           requires:
             - build-and-test
-          parallel: false
-          # start: yarn start
+          start: yarn start
           executor: with-chrome
           browser: chrome
