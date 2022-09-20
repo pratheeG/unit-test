@@ -6,7 +6,7 @@ orbs:
   node: circleci/node@5.0.2
 
 executors:
-  with-chrome:
+  with-browser:
     resource_class: small
     docker:
       - image: "cypress/browsers"
@@ -63,10 +63,20 @@ workflows:
             - build-and-test
       
       - cypress/run:
-          name: E2E test
+          name: Chrome E2E test
           yarn: true
           requires:
             - build-and-test
           start: yarn start
-          executor: with-chrome
+          executor: with-browser
           browser: chrome
+        
+      - cypress/run:
+          name: 'Firefox E2E test'
+          yarn: true
+          requires:
+            - build-and-test
+          start: yarn start
+          executor: with-browser
+          browser: firefox
+
