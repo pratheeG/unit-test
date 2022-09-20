@@ -20,7 +20,6 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/node:16.14.2
-      - image: "cimg/base:stable"
     steps:
      - checkout
       - node/install-packages:
