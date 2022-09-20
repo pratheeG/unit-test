@@ -5,6 +5,12 @@ orbs:
   node: circleci/node@5.0.2
   cypress: cypress-io/cypress@1
 
+executors:
+  with-chrome:
+    resource_class: small
+    docker:
+      - image: "cypress/browsers:node16.14.2-chrome105-ff88"
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -55,3 +61,10 @@ workflows:
           name: console-version
           requires:
             - build-and-test
+      
+      - cypress/install
+      - cypress/run:
+          requires:
+            - cypress/install
+          executor: with-chrome
+          browser: chrome
