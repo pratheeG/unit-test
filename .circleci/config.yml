@@ -21,9 +21,12 @@ jobs:
     docker:
       - image: cimg/node:16.14.2
     steps:
-     - checkout
+      - checkout
       - node/install-packages:
           pkg-manager: yarn
+      - run:
+          name: Check Version
+          command: node -v
       - run:
           name: Run tests
           command: yarn test
