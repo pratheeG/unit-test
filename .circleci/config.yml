@@ -19,13 +19,14 @@ jobs:
           command: "echo Hello, World!"
   build-and-test:
     docker:
+      - image: cimg/node:16.14.2
       - image: "cimg/base:stable"
     steps:
-      - checkout
-      - node/install:
-          node-version: "16.14.2"
-      - node/install-packages
+     - checkout
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
+          name: Run tests
           command: yarn test
 
 # Invoke jobs via workflows
