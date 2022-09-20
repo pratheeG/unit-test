@@ -6,6 +6,10 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    "reporterOptions": {
+      "mochaFile": "cypress/results/tests-[hash].xml",
+      "toConsole": true
+    }
   },
   video: false,
 });
