@@ -65,13 +65,13 @@ workflows:
       - cypress/install:
           name: 'Cyp Install'
           requires:
-            - build-and-test
+            - say-hello
 
       - cypress/run:
           name: E2E test
           yarn: true
           requires:
-            - build-and-test
+            - say-hello
           parallel: false
           start: yarn start
           executor: with-chrome
