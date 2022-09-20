@@ -31,7 +31,7 @@ jobs:
           command: yarn test
   
   console-version:
-   docker:
+    docker:
       - image: cimg/node:16.14.2
     steps:
       - checkout
@@ -46,13 +46,11 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-  build-and-test:
-    jobs:
-      - build-and-test
-    requires:
-      - say-hello
-  console:
-    jobs:
-      - console-version
-    requires:
-      - build-and-test
+      - build-and-test:
+          name: build-and-test
+          requires:
+            - say-hello
+      - console-version:
+          name: console-version
+          requires:
+            - build-and-test
