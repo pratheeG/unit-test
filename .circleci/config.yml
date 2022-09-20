@@ -31,6 +31,8 @@ jobs:
           command: yarn test
   
   console-version:
+   docker:
+      - image: cimg/node:16.14.2
     steps:
       - checkout
       - run:
