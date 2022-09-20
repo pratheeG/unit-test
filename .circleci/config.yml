@@ -9,7 +9,7 @@ executors:
   with-chrome:
     resource_class: small
     docker:
-      - image: "cypress/browsers:node16.14.2-chrome105-ff88"
+      - image: "cypress/browsers"
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
