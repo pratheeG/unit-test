@@ -1,9 +1,10 @@
-import './App.css';
+import "./App.css";
 
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
+import logo from "./logo.svg";
 
 function App() {
+  const secret = "Prem Test";
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +18,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React {{ secret }}
         </a>
       </header>
     </div>
