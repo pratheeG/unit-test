@@ -73,10 +73,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - static-code-checks:
-          filters:
-            branches:
-              only: master
+      - static-code-checks
       - build-and-test:
           name: build-and-test
           requires:
