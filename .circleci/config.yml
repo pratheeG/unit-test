@@ -100,14 +100,14 @@ workflows:
           executor: with-browser
           browser: firefox
 
-  nightly:
-    jobs:
-      - static-code-checks
-    triggers:
-      - schedule:
-          cron: "* * * * *"
-          filters:
-            branches:
-              only:
-                - main
+  # nightly:
+  #   jobs:
+  #     - static-code-checks
+  #   triggers:
+  #     - schedule:
+  #         cron: "* * * * *"
+  #         filters:
+  #           branches:
+  #             only:
+  #               - main
 
