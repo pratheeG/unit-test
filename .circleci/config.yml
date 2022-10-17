@@ -14,6 +14,26 @@ executors:
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
+  static-code-checks:
+    parameters:
+      repo_path:
+        type: string
+        default: ~/repo
+    environment:
+      SEMGREP_RULES: >-
+        p/ci
+        p/secrets
+        p/owasp-top-ten 
+    docker:
+      - image: returntocorp/semgrep-agent:v1
+    steps:
+      - checkout
+      - run:
+          name: "Semgrep scan"
+          command: semgrep-agent > semgrep.log
+      - store_artifacts:
+          path: semgrep.log
+          destination: /tmp/artifacts/semgrep.log
   say-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -53,6 +73,10 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - static-code-checks:
+          filters:
+            branches:
+              only: master
       - build-and-test:
           name: build-and-test
           requires:
