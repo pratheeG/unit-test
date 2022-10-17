@@ -101,6 +101,8 @@ workflows:
           browser: firefox
 
   nightly:
+    jobs:
+      - static-code-checks
     triggers:
       - schedule:
           cron: "* * * * *"
