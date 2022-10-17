@@ -72,12 +72,11 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
       - static-code-checks
       - build-and-test:
           name: build-and-test
           requires:
-            - say-hello
+            - static-code-checks
       - console-version:
           name: console-version
           requires:
@@ -100,4 +99,13 @@ workflows:
           start: yarn start
           executor: with-browser
           browser: firefox
+
+  nightly:
+    triggers:
+      - schedule:
+          cron: "* * * * *"
+          filters:
+            branches:
+              only:
+                - main
 
