@@ -18,7 +18,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React {{ secret }}
+          Learn React { secret }
         </a>
       </header>
     </div>
