@@ -5,6 +5,7 @@ import logo from "./logo.svg";
 
 function App() {
   const secret = "Prem Test";
+  const apiKey = "Kumar";
   return (
     <div className="App">
       <header className="App-header">
@@ -18,7 +19,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React { secret }
+          Learn React { secret } {apiKey}
         </a>
       </header>
     </div>

@@ -2,3 +2,7 @@ fileignoreconfig:
 - filename: src/App.tsx
   checksum: 60eb000651d1cf5baeee41eb841cca957fd3294efcd9e677b85e24d831cf31cb
 version: ""
+fileignoreconfig:
+- filename: src/App.tsx
+  checksum: 30f3634b3d3ad122e88e2622f0824d97714d8c6862c7b799658f2df1c26ef0ef
+version: ""
